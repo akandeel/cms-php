@@ -24,12 +24,20 @@ class cms21iL {
   }
 
   public function connect() {
-
   }
 
   private funtion builDB() {
+    $query = <<<MySQL_QUERY
+      CREATE TABLE IF NON EXIST (
+        title VARCHAR(150),
+        bodytext TEXT,
+        created VARCHAR(100)
+      )
+      MYSQL_QUERY;
 
+      return mysql_query($query);
   }
+
 }
 
  ?>
