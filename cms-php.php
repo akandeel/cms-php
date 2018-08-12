@@ -24,11 +24,19 @@ class cms21iL {
   }
 
   public function connect() {
+//connecting to the database
+    myql_connect($this->host,$this->username,$this->password) or die("could not connect. " . mysql_error());
+    mysql_select_db($this->table) or die("could not select database. ". mysql_error());
+//makes sure we save data in correct place.
+    return $this->builDB();
+//then runs buildDB function.
   }
 
   private funtion builDB() {
+//create DB
+//THIS FUNCTION RUNS EVERYTIME PAGE IS LOADED
     $query = <<<MySQL_QUERY
-      CREATE TABLE IF NON EXIST (
+      CREATE TABLE IF NOT EXISTS (
         title VARCHAR(150),
         bodytext TEXT,
         created VARCHAR(100)
