@@ -16,6 +16,9 @@ class cms21iL {
   }
 
   public function display_admin() {
+    return <<<ADMIN_FORM
+
+    <
 
   }
 
