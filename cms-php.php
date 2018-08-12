@@ -18,7 +18,19 @@ class cms21iL {
   public function display_admin() {
     return <<<ADMIN_FORM
 
-    <
+    <form action="{$_SERVE['PHP_SELF']}" method="post"
+
+      <label for="title">Title:</label>
+      <input name="title" id="title" type="text" maxlength="150" />
+
+      <label for="bodytext">Body Text:</label>
+      <textarea name="bodytext" id="bodytext"></textarea>
+
+      <input type="submit" value="create This entry" />
+
+    </form>
+
+  ADMIN_FORM;
 
   }
 
