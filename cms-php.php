@@ -16,6 +16,8 @@ class cms21iL {
   }
 
   public function display_admin() {
+//PPH_SELF IS A SHORTCUT TO THE FILE DISPLAY.php
+//CREATE FORM USING HEREDOC SYNTAX
     return <<<ADMIN_FORM
 
     <form action="{$_SERVE['PHP_SELF']}" method="post"
@@ -38,18 +40,17 @@ class cms21iL {
 
   }
 
+
   public function connect() {
-//connecting to the database
     myql_connect($this->host,$this->username,$this->password) or die("could not connect. " . mysql_error());
     mysql_select_db($this->table) or die("could not select database. ". mysql_error());
-//makes sure we save data in correct place.
+
     return $this->builDB();
-//then runs buildDB function.
+
   }
 
   private funtion builDB() {
-//create DB
-//THIS FUNCTION RUNS EVERYTIME PAGE IS LOADED
+
     $query = <<<MySQL_QUERY
       CREATE TABLE IF NOT EXISTS (
         title VARCHAR(150),
