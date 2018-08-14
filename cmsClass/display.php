@@ -15,8 +15,11 @@
       $obj->table = 'Dbusername';
       $obj->connect();
 
+      if ( $_post )
+        $obj->write($_post);
 
-      
+    echo ( $_GET['admin'] == 1 ) ? $obj->display_admin() : $obj->display_public();
+    
      ?>
   </body>
 
