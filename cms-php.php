@@ -12,7 +12,7 @@ class cms21iL {
   var $table;
 
   public function display_public() {
-    $q = SELECT * FROM testDB ORDER BY created DESC LIMIT 3"
+    $q = "SELECT * FROM testDB ORDER BY created DESC LIMIT 3";
     $r = mysql_query($q);
 
     if (#r !== false && mysql_num_rows($r) > 0 ) {
@@ -24,6 +24,9 @@ class cms21iL {
 
   <h2>title</h2>
   <p>$bodytext</p>
+
+  ENTRY_DISPLAY;
+      }
       }
     }
   }
