@@ -20,7 +20,7 @@ class cms21iL {
 //CREATE FORM USING HEREDOC SYNTAX
     return <<<ADMIN_FORM
 
-    <form action="{$_SERVE['PHP_SELF']}" method="post"
+    <form action="{$_SERVER['PHP_SELF']}" method="post"
 
       <label for="title">Title:</label>
       <input name="title" id="title" type="text" maxlength="150" />
@@ -36,7 +36,10 @@ class cms21iL {
 
   }
 
-  public function write() {
+  public function write($p) {
+    if ( $p['title'])
+      $title = mysql_real_escape_string($p['title']);
+    
 
   }
 
