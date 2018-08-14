@@ -7,7 +7,7 @@
 
   <body>
     <?php
-      include_once('cmsClass/cms.php');
+      include_once('cmsClass/cms-php.php');
       $obj = new cms();
       $obj->host = 'database.host.net';
       $obje->username = 'Dbusername';
@@ -19,7 +19,7 @@
         $obj->write($_post);
 
     echo ( $_GET['admin'] == 1 ) ? $obj->display_admin() : $obj->display_public();
-    
+
      ?>
   </body>
 
