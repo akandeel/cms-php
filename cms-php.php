@@ -39,7 +39,15 @@ class cms21iL {
   public function write($p) {
     if ( $p['title'])
       $title = mysql_real_escape_string($p['title']);
-    
+    if ($p['bodytext'])
+      $bodytext = mysql_real_escape_string($['bodytext']);
+    if ( $title && $bodytext ) {
+      $created = time();
+      $sql_query = "INSERT INTO test DB VALUES('$title', '$bodoytext', '$created')";
+
+    return mysql_query($sql_query);
+  } else { return false; }
+    }
 
   }
 
