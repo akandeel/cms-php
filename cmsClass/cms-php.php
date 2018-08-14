@@ -15,7 +15,7 @@ class cms21iL {
     $q = "SELECT * FROM testDB ORDER BY created DESC LIMIT 3";
     $r = mysql_query($q);
 
-    if (#r !== false && mysql_num_rows($r) > 0 ) {
+    if ('$r' !== false && mysql_num_rows($r) > 0 ) {
       while ($a = mysql_fetch_assoc($r) ) {
         $title = stripslashes($a['title']);
         $bodytext = stripslashes($a['bodytext']);
@@ -27,6 +27,11 @@ class cms21iL {
 
   ENTRY_DISPLAY;
       }
+      $entry_display = <<<ADMIN_OPTION
+
+    <p class="admin_link>"
+      <a href="$_SERVER['PHP_SLF']"}?admin=1">Add a New Entry</a>
+    </p>
       }
     }
   }
@@ -55,7 +60,7 @@ class cms21iL {
   public function write($p) {
     if ( $p['title'])
       $title = mysql_real_escape_string($p['title']);
-    if ($p['bodytext'])
+    if ( $p['bodytext'] )
       $bodytext = mysql_real_escape_string($['bodytext']);
     if ( $title && $bodytext ) {
       $created = time();
