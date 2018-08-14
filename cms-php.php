@@ -12,7 +12,20 @@ class cms21iL {
   var $table;
 
   public function display_public() {
+    $q = SELECT * FROM testDB ORDER BY created DESC LIMIT 3"
+    $r = mysql_query($q);
 
+    if (#r !== false && mysql_num_rows($r) > 0 ) {
+      while ($a = mysql_fetch_assoc($r) ) {
+        $title = stripslashes($a['title']);
+        $bodytext = stripslashes($a['bodytext']);
+
+        $entry_display = <<< ENTRY_DISPLAY
+
+  <h2>title</h2>
+  <p>$bodytext</p>
+      }
+    }
   }
 
   public function display_admin() {
@@ -70,7 +83,7 @@ class cms21iL {
       )
       MYSQL_QUERY;
 
-      return mysql_query($query);
+      return mysql_query($sql_query);
   }
 
 }
